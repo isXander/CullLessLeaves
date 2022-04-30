@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "${id}",
+    "version": "${version}",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+
+    },
+    "depends": [
+      {
+        "id": "minecraft",
+        "versions": "*"
+      }
+    ],
+    "metadata": {
+      "name": "${name}",
+      "description": "${description}",
+      "contributors": {
+        "isXander": "Maintainer"
+      },
+      "contact": {
+        "issues": "https://github.com/${github}/issues",
+        "sources": "https://github.com/${github}",
+        "homepage": "https://isxander.dev",
+        "discord": "https://discord.gg/AJv5ZnNT8q"
+      },
+      "license": "LGPL-3.0-or-later"
+    }
+  },
+  "mixin": [
+    "fabric-mod-template.mixins.json"
+  ]
+}
