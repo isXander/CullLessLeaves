@@ -5,6 +5,7 @@
     "id": "${id}",
     "version": "${version}",
     "intermediate_mappings": "net.fabricmc:intermediary",
+    "icon": "cull-less-leaves.png",
     "entrypoints": {
       "preLaunch": [
         "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
