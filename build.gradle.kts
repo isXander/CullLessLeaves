@@ -1,3 +1,5 @@
+import com.modrinth.minotaur.dependencies.Dependency
+
 plugins {
     java
 
@@ -99,6 +101,8 @@ if (modrinthId.isNotEmpty()) {
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
+        dependencies.add(Dependency("cloth-config", "required"))
+        dependencies.add(Dependency("modmenu", "optional"))
     }
 }
 
@@ -116,6 +120,11 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
             addGameVersion(minecraftVersion)
             addGameVersion("Fabric")
             addGameVersion("Java 17")
+
+            relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
+                requiredDependency("cloth-config")
+                optionalDependency("modmenu")
+            })
 
             changelog = changelogText
             changelogType = "markdown"
