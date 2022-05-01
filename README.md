@@ -5,7 +5,9 @@ Instead of leaving just the outer layer of leaves, Cull Less Leaves also renders
 of layers defined in the config.
 
 Fast Culling (identical to original cull leaves mod)
+
 ![fast culling](https://i.imgur.com/5SPxxYy.png)
 
 Less Culling
+
 ![less culling](https://i.imgur.com/GjYFjJV.png)
