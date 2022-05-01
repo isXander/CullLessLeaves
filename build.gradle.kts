@@ -101,8 +101,10 @@ if (modrinthId.isNotEmpty()) {
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
-        dependencies.add(Dependency("cloth-config", "required"))
-        dependencies.add(Dependency("modmenu", "optional"))
+//        dependencies.set(listOf(
+//            Dependency("cloth-config", "required"),
+//            Dependency("modmenu", "optional")
+//        ))
     }
 }
 
