@@ -6,6 +6,7 @@
   "client": [
     "BlockMixin",
     "sodiumcompat.BlockOcclusionCacheMixin",
-    "sodiumcompat.LeavesBlockMixin"
+    "sodiumcompat.LeavesBlockMixin",
+    "sodiumcompat.SodiumGameOptionPagesMixin"
   ]
 }

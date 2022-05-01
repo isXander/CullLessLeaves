@@ -8,4 +8,4 @@ Fast Culling (identical to original cull leaves mod)
 ![fast culling](https://i.imgur.com/5SPxxYy.png)
 
 Less Culling
-![recommended culling](https://i.imgur.com/GjYFjJV.png)
+![less culling](https://i.imgur.com/GjYFjJV.png)

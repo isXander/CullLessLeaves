@@ -10,7 +10,7 @@ public class CullLessLeavesConfig implements ConfigData {
     public boolean enabled = true;
 
     @ConfigEntry.BoundedDiscrete(min = 1L, max = 4L)
-    @ConfigEntry.Gui.Tooltip(count = 4)
+    @ConfigEntry.Gui.Tooltip
     @Comment("amount of layers of leaves before the inside is culled")
     public int depth = 2;
 }
