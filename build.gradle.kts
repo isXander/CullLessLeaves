@@ -17,6 +17,8 @@ version = "1.0.0"
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
+    maven("https://maven.shedaniel.me")
+    maven("https://maven.terraformersmc.com")
 }
 
 val minecraftVersion: String by project
@@ -31,12 +33,18 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:6.2.+") {
+        exclude(module = "fabric-api")
+    }
+    modImplementation("com.terraformersmc:modmenu:3.2.+")
+
     "com.github.llamalad7:mixinextras:0.0.+".let {
         implementation(it)
         annotationProcessor(it)
         include(it)
     }
 
+    // sodium compat
     modImplementation("com.github.caffeinemc:sodium-fabric:mc$minecraftVersion-0.4.1")
 }
 

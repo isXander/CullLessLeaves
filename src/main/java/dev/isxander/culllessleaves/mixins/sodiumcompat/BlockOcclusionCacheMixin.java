@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.At;
 public class BlockOcclusionCacheMixin {
     @ModifyExpressionValue(method = "shouldDrawSide", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isSideInvisible(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/Direction;)Z"))
     private boolean shouldCullSide(boolean isSideInvisible, BlockState state, BlockView view, BlockPos pos, Direction facing) {
-        if (!(state.getBlock() instanceof LeavesBlock))
+        if (!(state.getBlock() instanceof LeavesBlock) || !CullLessLeaves.getConfig().enabled)
             return isSideInvisible;
 
-        return CullLessLeaves.shouldCullSide(state, view, pos, facing);
+        return CullLessLeaves.shouldCullSide(view, pos, facing);
     }
 }

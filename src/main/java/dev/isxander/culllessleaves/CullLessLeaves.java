@@ -1,15 +1,27 @@
 package dev.isxander.culllessleaves;
 
 import dev.isxander.culllessleaves.compat.Compat;
-import net.minecraft.block.BlockState;
+import dev.isxander.culllessleaves.config.CullLessLeavesConfig;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
-public class CullLessLeaves {
-    public static boolean shouldCullSide(BlockState state, BlockView view, BlockPos pos, Direction facing) {
-        var depth = 2;
+public class CullLessLeaves implements ClientModInitializer {
+    @Override
+    public void onInitializeClient() {
+        AutoConfig.register(CullLessLeavesConfig.class, Toml4jConfigSerializer::new);
+    }
+
+    public static CullLessLeavesConfig getConfig() {
+        return AutoConfig.getConfigHolder(CullLessLeavesConfig.class).getConfig();
+    }
+
+    public static boolean shouldCullSide(BlockView view, BlockPos pos, Direction facing) {
+        var depth = getConfig().depth;
 
         // if not fancy leaves, cull everything apart from outside
         if (!Compat.isFancyLeaves())
@@ -18,7 +30,8 @@ public class CullLessLeaves {
         var vec = facing.getVector();
         var cull = true;
         for (int i = 1; i <= depth; i++) {
-            cull &= view.getBlockState(pos.add(vec.multiply(i))).getBlock() instanceof LeavesBlock;
+            var state = view.getBlockState(pos.add(vec.multiply(i)));
+            cull &= state != null && state.getBlock() instanceof LeavesBlock;
         }
         return cull;
     }

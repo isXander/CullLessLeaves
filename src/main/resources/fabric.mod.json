@@ -17,6 +17,12 @@
   "entrypoints": {
     "preLaunch": [
       "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+    ],
+    "client": [
+      "dev.isxander.culllessleaves.CullLessLeaves"
+    ],
+    "modmenu": [
+      "dev.isxander.culllessleaves.integrations.ModMenuIntegration"
     ]
   },
   "mixins": [
