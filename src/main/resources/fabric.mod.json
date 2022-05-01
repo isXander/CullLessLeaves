@@ -15,10 +15,12 @@
   "license": "LGPL-3.0-or-later",
   "environment": "client",
   "entrypoints": {
-
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+    ]
   },
   "mixins": [
-    "fabric-mod-template.mixins.json"
+    "cull-less-leaves.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.0",

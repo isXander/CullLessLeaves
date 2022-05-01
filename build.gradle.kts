@@ -16,6 +16,7 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 val minecraftVersion: String by project
@@ -25,11 +26,18 @@ dependencies {
 
     minecraft("com.mojang:minecraft:$minecraftVersion")
     mappings(loom.layered {
-        officialMojangMappings()
         addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.+:v2"))
     })
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
+
+    "com.github.llamalad7:mixinextras:0.0.+".let {
+        implementation(it)
+        annotationProcessor(it)
+        include(it)
+    }
+
+    modImplementation("com.github.caffeinemc:sodium-fabric:mc$minecraftVersion-0.4.1")
 }
 
 tasks {

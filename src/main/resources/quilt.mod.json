@@ -6,7 +6,9 @@
     "version": "${version}",
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-
+      "preLaunch": [
+        "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+      ]
     },
     "depends": [
       {
@@ -30,6 +32,6 @@
     }
   },
   "mixin": [
-    "fabric-mod-template.mixins.json"
+    "cull-less-leaves.mixins.json"
   ]
 }
