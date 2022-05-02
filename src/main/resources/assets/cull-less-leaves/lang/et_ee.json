@@ -1,0 +1,8 @@
+{
+  "text.autoconfig.cull-less-leaves.title": "Cull Less Leaves",
+  "text.autoconfig.cull-less-leaves.option.enabled": "Lubatud",
+  "text.autoconfig.cull-less-leaves.option.depth": "Sügavus",
+  "text.autoconfig.cull-less-leaves.option.depth.@Tooltip": "Kuvatavate lehekihtide arv enne, kui lehtede sisemus nähtamatuks tehakse.\n1 = Kiireim, kuid halvima väljanägemisega.\n2 = Soovitatud.\n4 = Aeglaseim, kuid parima väljanägemisega.",
+  "text.cull-less-leaves.description": "Lubab modi Cull Less Leaves.",
+  "text.cull-less-leaves.sodium.option.depth": "Lehtede nähtamatuse sügavus"
+}
