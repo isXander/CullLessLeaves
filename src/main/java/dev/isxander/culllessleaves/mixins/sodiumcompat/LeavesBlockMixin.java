@@ -6,7 +6,7 @@ import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Mixin(value = LeavesBlock.class, priority = 1001)
+@Mixin(value = LeavesBlock.class, priority = 1100)
 public class LeavesBlockMixin extends Block {
     public LeavesBlockMixin(Settings settings) {
         super(settings);
