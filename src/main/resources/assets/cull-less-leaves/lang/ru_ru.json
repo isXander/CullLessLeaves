@@ -3,6 +3,7 @@
   "text.autoconfig.cull-less-leaves.option.enabled": "Активирован",
   "text.autoconfig.cull-less-leaves.option.depth": "Количество слоёв",
   "text.autoconfig.cull-less-leaves.option.depth.@Tooltip": "Количество слоёв листьев до удаления их внутренней части.\n1 = Быстро, но хуже всего выглядит.\n2 = Рекомендуется.\n4 = Медленно, но лучше всего выглядит.",
-  "text.cull-less-leaves.description": "Активирует мод Cull Less Leaves.",
+  "text.cull-less-leaves.sodium.option.enabled": "Cull Leaves",
+  "text.cull-less-leaves.sodium.option.enabled.description": "Активирует мод Cull Less Leaves.",
   "text.cull-less-leaves.sodium.option.depth": "Видимые слои листьев"
 }

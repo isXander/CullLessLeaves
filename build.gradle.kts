@@ -1,4 +1,4 @@
-import com.modrinth.minotaur.dependencies.Dependency
+import com.modrinth.minotaur.dependencies.ModDependency
 
 plugins {
     java
@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -101,10 +101,10 @@ if (modrinthId.isNotEmpty()) {
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
-//        dependencies.set(listOf(
-//            Dependency("cloth-config", "required"),
-//            Dependency("modmenu", "optional")
-//        ))
+        dependencies.set(listOf(
+            ModDependency("cloth-config", "required"),
+            ModDependency("modmenu", "optional")
+        ))
     }
 }
 

@@ -2,7 +2,6 @@ package dev.isxander.culllessleaves.mixins;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.culllessleaves.CullLessLeaves;
-import dev.isxander.culllessleaves.compat.Compat;
 import net.minecraft.block.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
