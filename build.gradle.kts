@@ -102,8 +102,8 @@ if (modrinthId.isNotEmpty()) {
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
         dependencies.set(listOf(
-            ModDependency("cloth-config", "required"),
-            ModDependency("modmenu", "optional")
+            ModDependency("9s6osm5g", "required"), // cloth-config
+            ModDependency("mOgUt4GM", "optional") // modmenu
         ))
     }
 }
