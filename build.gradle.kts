@@ -162,11 +162,11 @@ publishing {
     }
 
     repositories {
-        if (hasProperty("woverflow.username") && hasProperty("woverflow.token")) {
+        if (hasProperty("woverflow.username") && hasProperty("woverflow.password")) {
             maven(url = "https://repo.woverflow.cc/releases") {
                 credentials {
                     username = property("woverflow.username")?.toString()
-                    password = property("woverflow.token")?.toString()
+                    password = property("woverflow.password")?.toString()
                 }
             }
         }
