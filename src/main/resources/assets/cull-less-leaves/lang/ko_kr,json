@@ -1,9 +1,0 @@
-{
-  "text.autoconfig.cull-less-leaves.title": "Cull Less Leaves",
-  "text.autoconfig.cull-less-leaves.option.enabled": "활성화됨",
-  "text.autoconfig.cull-less-leaves.option.depth": "깊이",
-  "text.autoconfig.cull-less-leaves.option.depth.@Tooltip": "쿨링하지 않을 잎의 층을 제어합니다.\n1 = 가장 빠르지만 보기 않좋음\n2 = 추천 값\n4 = 가장 느리지만 가장 보기 좋음",
-  "text.cull-less-leaves.sodium.option.enabled": "잎 쿨링",
-  "text.cull-less-leaves.sodium.option.enabled.description": "Cull Less Leaves 모드를 활성화 합니다.",
-  "text.cull-less-leaves.sodium.option.depth": "쿨링하지 않을 잎 깊이"
-}
