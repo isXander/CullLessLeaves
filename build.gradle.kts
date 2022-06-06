@@ -4,13 +4,14 @@ plugins {
     java
 
     id("fabric-loom") version "0.12.+"
-    id("org.quiltmc.quilt-mappings-on-loom") version "4.+"
     id("io.github.juuxel.loom-quiltflower") version "1.7.+"
 
     id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.+"
     id("com.github.breadmoirai.github-release") version "2.+"
     `maven-publish`
+
+    id("io.github.p03w.machete") version "1.+"
 }
 
 group = "dev.isxander"
@@ -21,6 +22,7 @@ repositories {
     maven("https://jitpack.io")
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
+    maven("https://maven.flashyreese.me/snapshots")
 }
 
 val minecraftVersion: String by project
@@ -29,16 +31,14 @@ dependencies {
     val fabricLoaderVersion: String by project
 
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings(loom.layered {
-        addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:$minecraftVersion+build.+:v2"))
-    })
+    mappings("net.fabricmc:yarn:$minecraftVersion+build.+:v2")
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("me.shedaniel.cloth:cloth-config-fabric:6.2.+") {
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:7.+") {
         exclude(module = "fabric-api")
     }
-    modImplementation("com.terraformersmc:modmenu:3.2.+")
+    modImplementation("com.terraformersmc:modmenu:4.+")
 
     "com.github.llamalad7:mixinextras:0.0.+".let {
         implementation(it)
@@ -47,7 +47,7 @@ dependencies {
     }
 
     // sodium compat
-    modImplementation("com.github.caffeinemc:sodium-fabric:mc$minecraftVersion-0.4.1")
+    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2-beta.1+rev.0cb72af")
 }
 
 tasks {
@@ -146,7 +146,7 @@ githubRelease {
     owner(split[0])
     repo(split[1])
     tagName("${project.version}")
-    targetCommitish("1.18")
+    targetCommitish("1.19")
     body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }

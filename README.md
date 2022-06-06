@@ -6,13 +6,7 @@ of layers defined in the config.
 
 **[Works best with Sodium](https://modrinth.com/mod/sodium)**
 
-Less Culling
-
-![less culling](https://i.imgur.com/GjYFjJV.png)
-
-Fast Culling (identical to original cull leaves mod)
-
-![fast culling](https://i.imgur.com/5SPxxYy.png)
+![comparison](https://i.imgur.com/yMUQxMX.png)
 
 Sodium Configuration
 
