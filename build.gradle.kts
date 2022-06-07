@@ -103,7 +103,7 @@ if (modrinthId.isNotEmpty()) {
         syncBodyFrom.set(file("README.md").readText())
         dependencies.set(listOf(
             ModDependency("9s6osm5g", "required"), // cloth-config
-            ModDependency("mOgUt4GM", "optional") // modmenu
+            ModDependency("mOgUt4GM", "optional"), // modmenu
         ))
     }
 }
@@ -121,6 +121,7 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
             releaseType = "release"
             addGameVersion(minecraftVersion)
             addGameVersion("Fabric")
+            addGameVersion("Quilt")
             addGameVersion("Java 17")
 
             relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
