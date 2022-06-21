@@ -1,5 +1,3 @@
-import com.modrinth.minotaur.dependencies.ModDependency
-
 plugins {
     java
 
@@ -8,7 +6,7 @@ plugins {
 
     id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.+"
-    id("com.github.breadmoirai.github-release") version "2.+"
+    id("com.github.breadmoirai.github-release") version "2.3.+"
     `maven-publish`
 
     id("io.github.p03w.machete") version "1.+"
@@ -23,6 +21,11 @@ repositories {
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
     maven("https://maven.flashyreese.me/snapshots")
+    maven("https://api.modrinth.com/maven") {
+        content {
+            includeGroup("maven.modrinth")
+        }
+    }
 }
 
 val minecraftVersion: String by project
@@ -47,7 +50,7 @@ dependencies {
     }
 
     // sodium compat
-    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2-beta.1+rev.0cb72af")
+    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2+build.+")
 }
 
 tasks {
@@ -101,10 +104,10 @@ if (modrinthId.isNotEmpty()) {
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
-        dependencies.set(listOf(
-            ModDependency("9s6osm5g", "required"), // cloth-config
-            ModDependency("mOgUt4GM", "optional"), // modmenu
-        ))
+        dependencies {
+            required.project("cloth-config")
+            optional.project("modmenu")
+        }
     }
 }
 
@@ -163,11 +166,11 @@ publishing {
     }
 
     repositories {
-        if (hasProperty("woverflow.username") && hasProperty("woverflow.password")) {
-            maven(url = "https://repo.woverflow.cc/releases") {
+        if (hasProperty("xander-repo.username") && hasProperty("xander-repo.password")) {
+            maven(url = "https://maven.isxander.dev/releases") {
                 credentials {
-                    username = property("woverflow.username")?.toString()
-                    password = property("woverflow.password")?.toString()
+                    username = property("xander-repo.username")?.toString()
+                    password = property("xander-repo.password")?.toString()
                 }
             }
         }
