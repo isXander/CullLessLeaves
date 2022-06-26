@@ -51,6 +51,13 @@ dependencies {
 
     // sodium compat
     modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2+build.+")
+
+    // more culling compat
+    modImplementation("maven.modrinth:moreculling:v0.3.0")
+    "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
+        modImplementation(it)
+        include(it)
+    }
 }
 
 tasks {
