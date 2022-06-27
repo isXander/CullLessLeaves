@@ -53,7 +53,7 @@ dependencies {
     modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2+build.+")
 
     // more culling compat
-    modImplementation("maven.modrinth:moreculling:v0.3.0")
+    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.3.1")
     "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
         modImplementation(it)
         include(it)
