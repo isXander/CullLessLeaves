@@ -2,6 +2,8 @@ package dev.isxander.culllessleaves.mixins.sodiumcompat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.isxander.culllessleaves.CullLessLeaves;
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.jellysquid.mods.sodium.client.render.occlusion.BlockOcclusionCache;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
@@ -9,10 +11,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Pseudo
+@Restriction(require = @Condition("sodium"))
 @Mixin(BlockOcclusionCache.class)
 public class BlockOcclusionCacheMixin {
     /**
