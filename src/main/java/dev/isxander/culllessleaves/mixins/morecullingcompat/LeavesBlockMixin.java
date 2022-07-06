@@ -23,8 +23,7 @@ public class LeavesBlockMixin implements MoreBlockCulling {
 
     @Override
     public Optional<Boolean> customShouldDrawFace(BlockView view, BlockState thisState, BlockState sideState, BlockPos thisPos, BlockPos sidePos, Direction side) {
-        if (sideState.isAir()) return Optional.of(true);
-        if (CullLessLeaves.shouldCullSide(view, sidePos, side))
+        if (CullLessLeaves.shouldCullSide(view, thisPos, side))
             return Optional.of(false);
         else
             return Optional.empty();
