@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.0.3"
+version = "1.0.4"
 
 repositories {
     mavenCentral()
@@ -21,11 +21,6 @@ repositories {
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
     maven("https://maven.flashyreese.me/snapshots")
-    maven("https://api.modrinth.com/maven") {
-        content {
-            includeGroup("maven.modrinth")
-        }
-    }
 }
 
 val minecraftVersion: String by project
@@ -169,8 +164,8 @@ githubRelease {
 publishing {
     publications {
         create<MavenPublication>("mod") {
-            groupId = "dev.isxander"
-            artifactId = "cull-less-leaves"
+            groupId = group.toString()
+            artifactId = base.archivesName.get()
 
             from(components["java"])
         }
@@ -184,8 +179,6 @@ publishing {
                     password = property("xander-repo.password")?.toString()
                 }
             }
-        } else {
-            println("Xander Repo not available!")
         }
     }
 }

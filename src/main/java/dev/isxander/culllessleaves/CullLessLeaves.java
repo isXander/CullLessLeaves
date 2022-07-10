@@ -7,10 +7,10 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.VersionParsingException;
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
-import net.fabricmc.loader.impl.FormattedException;
-import net.fabricmc.loader.impl.util.version.VersionPredicateParser;
+import net.fabricmc.loader.api.metadata.version.VersionComparisonOperator;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -21,14 +21,12 @@ public class CullLessLeaves implements ClientModInitializer, PreLaunchEntrypoint
     public void onInitializeClient() {
         FabricLoader.getInstance().getModContainer("moreculling").ifPresent((mod) -> {
             try {
-                var predicate = VersionPredicateParser.parse(">=0.5.0");
-                if (!predicate.test(mod.getMetadata().getVersion())) {
-                    throw new FormattedException("Incompatible mod set!", "moreculling is present but does not match " + predicate);
+                if (!VersionComparisonOperator.GREATER_EQUAL.test(mod.getMetadata().getVersion(), Version.parse("0.5.0"))) {
+                    throw new RuntimeException("MoreCulling compatibility requires version >=0.5.0");
                 }
             } catch (VersionParsingException e) {
                 e.printStackTrace();
             }
-
         });
 
         AutoConfig.register(CullLessLeavesConfig.class, Toml4jConfigSerializer::new);

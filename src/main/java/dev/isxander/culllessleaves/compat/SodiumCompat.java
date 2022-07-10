@@ -8,7 +8,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 
 public class SodiumCompat {
-    private static final OptionStorage<CullLessLeavesConfig> OPTION_STORAGE = new OptionStorage<CullLessLeavesConfig>() {
+    private static final OptionStorage<CullLessLeavesConfig> OPTION_STORAGE = new OptionStorage<>() {
         @Override
         public CullLessLeavesConfig getData() {
             return CullLessLeaves.getConfig();
