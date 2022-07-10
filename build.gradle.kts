@@ -60,6 +60,10 @@ dependencies {
     }
 }
 
+java {
+    withSourcesJar()
+}
+
 tasks {
     processResources {
         val modId: String by project
