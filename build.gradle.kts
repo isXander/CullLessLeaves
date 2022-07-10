@@ -6,14 +6,14 @@ plugins {
 
     id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.+"
-    id("com.github.breadmoirai.github-release") version "2.3.+"
+    id("com.github.breadmoirai.github-release") version "2.4.+"
     `maven-publish`
 
     id("io.github.p03w.machete") version "1.+"
 }
 
 group = "dev.isxander"
-version = "1.0.2"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -41,7 +41,7 @@ dependencies {
     modImplementation("me.shedaniel.cloth:cloth-config-fabric:7.+") {
         exclude(module = "fabric-api")
     }
-    modImplementation("com.terraformersmc:modmenu:4.+")
+    modImplementation("com.terraformersmc:modmenu:4.0.0")
 
     "com.github.llamalad7:mixinextras:0.0.+".let {
         implementation(it)
@@ -53,7 +53,7 @@ dependencies {
     modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2+build.+")
 
     // more culling compat
-    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.3.1")
+    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.5.0")
     "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
         modImplementation(it)
         include(it)
@@ -165,8 +165,8 @@ githubRelease {
 publishing {
     publications {
         create<MavenPublication>("mod") {
-            groupId = group.toString()
-            artifactId = base.archivesName.get()
+            groupId = "dev.isxander"
+            artifactId = "cull-less-leaves"
 
             from(components["java"])
         }
@@ -180,6 +180,8 @@ publishing {
                     password = property("xander-repo.password")?.toString()
                 }
             }
+        } else {
+            println("Xander Repo not available!")
         }
     }
 }
