@@ -165,7 +165,7 @@ publishing {
     publications {
         create<MavenPublication>("mod") {
             groupId = group.toString()
-            artifactId = base.archivesName.get()
+            artifactId = property("modId") as String
 
             from(components["java"])
         }
