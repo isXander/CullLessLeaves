@@ -1,0 +1,9 @@
+{
+  "text.autoconfig.cull-less-leaves.title": "Cull Less Leaves",
+  "text.autoconfig.cull-less-leaves.option.enabled": "Activé",
+  "text.autoconfig.cull-less-leaves.option.depth": "Profondeur",
+  "text.autoconfig.cull-less-leaves.option.depth.@Tooltip": "Nombre de couches de feuilles avant que l'intérieur des feuilles ne soit masqué.\n1 = Le plus rapide, mais le moins beau.\n2 = Recommandé.\n4 = Le plus lent, mais le plus beau.",
+  "text.cull-less-leaves.sodium.option.enabled": "Cull Leaves",
+  "text.cull-less-leaves.sodium.option.enabled.description": "Active Cull Less Leaves.",
+  "text.cull-less-leaves.sodium.option.depth": "Profondeur de Masquage des feuilles"
+}
