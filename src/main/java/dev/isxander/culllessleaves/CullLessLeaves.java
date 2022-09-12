@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import dev.isxander.culllessleaves.compat.Compat;
 import dev.isxander.culllessleaves.config.CullLessLeavesConfig;
 import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
@@ -29,7 +28,8 @@ public class CullLessLeaves implements ClientModInitializer, PreLaunchEntrypoint
             }
         });
 
-        AutoConfig.register(CullLessLeavesConfig.class, Toml4jConfigSerializer::new);
+        getConfig().load();
+        //AutoConfig.register(CullLessLeavesConfig.class, Toml4jConfigSerializer::new);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class CullLessLeaves implements ClientModInitializer, PreLaunchEntrypoint
     }
 
     public static CullLessLeavesConfig getConfig() {
-        return AutoConfig.getConfigHolder(CullLessLeavesConfig.class).getConfig();
+        return CullLessLeavesConfig.INSTANCE;
     }
 
     public static boolean shouldCullSide(BlockView view, BlockPos pos, Direction facing) {

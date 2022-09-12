@@ -16,7 +16,7 @@ public class SodiumCompat {
 
         @Override
         public void save() {
-            AutoConfig.getConfigHolder(CullLessLeavesConfig.class).save();
+            CullLessLeaves.getConfig().save();
         }
     };
 

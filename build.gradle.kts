@@ -1,7 +1,7 @@
 plugins {
     java
 
-    id("fabric-loom") version "0.12.+"
+    id("fabric-loom") version "1.0.+"
     id("io.github.juuxel.loom-quiltflower") version "1.7.+"
 
     id("com.modrinth.minotaur") version "2.+"
@@ -13,11 +13,12 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.0.5"
+version = "1.0.6"
 
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
+    maven("https://maven.isxander.dev/releases")
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
     maven("https://maven.flashyreese.me/snapshots")
@@ -33,10 +34,8 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("me.shedaniel.cloth:cloth-config-fabric:7.+") {
-        exclude(module = "fabric-api")
-    }
-    modImplementation("com.terraformersmc:modmenu:4.0.0")
+    modImplementation("dev.isxander:yet-another-config-lib:1.1.0")
+    modImplementation("com.terraformersmc:modmenu:4.0.6")
 
     "com.github.llamalad7:mixinextras:0.0.+".let {
         implementation(it)
@@ -45,10 +44,10 @@ dependencies {
     }
 
     // sodium compat
-    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.2+build.+")
+    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.4+build.+")
 
     // more culling compat
-    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.5.0")
+    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.10.0")
     "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
         modImplementation(it)
         include(it)
