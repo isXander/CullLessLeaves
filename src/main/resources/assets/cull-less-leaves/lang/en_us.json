@@ -1,9 +1,9 @@
 {
-  "text.autoconfig.cull-less-leaves.title": "Cull Less Leaves",
-  "text.autoconfig.cull-less-leaves.option.enabled": "Enabled",
-  "text.autoconfig.cull-less-leaves.option.depth": "Depth",
-  "text.autoconfig.cull-less-leaves.option.depth.@Tooltip": "Amount of layers of leaves before the inside of the leaves is culled.\n1 = Fastest but least good-looking.\n2 = Recommended.\n4 = Slowest but most good-looking.",
-  "text.cull-less-leaves.sodium.option.enabled": "Cull Leaves",
-  "text.cull-less-leaves.sodium.option.enabled.description": "Enables Cull Less Leaves mod.",
-  "text.cull-less-leaves.sodium.option.depth": "Cull Leaves Depth"
+  "cull-less-leaves.title": "Cull Less Leaves",
+  "cull-less-leaves.option.enabled": "Enabled",
+  "cull-less-leaves.option.depth": "Depth",
+  "cull-less-leaves.option.depth.tooltip": "Amount of layers of leaves before the inside of the leaves is culled.\n1 = Fastest but least good-looking.\n2 = Recommended.\n4 = Slowest but most good-looking.",
+  "cull-less-leaves.sodium.option.enabled": "Cull Leaves",
+  "cull-less-leaves.sodium.option.enabled.description": "Enables Cull Less Leaves mod.",
+  "cull-less-leaves.sodium.option.depth": "Cull Leaves Depth"
 }

@@ -29,7 +29,6 @@ public class CullLessLeaves implements ClientModInitializer, PreLaunchEntrypoint
         });
 
         getConfig().load();
-        //AutoConfig.register(CullLessLeavesConfig.class, Toml4jConfigSerializer::new);
     }
 
     @Override

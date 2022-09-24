@@ -34,10 +34,10 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander:yet-another-config-lib:1.1.0")
+    modImplementation("dev.isxander:yet-another-config-lib:1.5.0")
     modImplementation("com.terraformersmc:modmenu:4.0.6")
 
-    "com.github.llamalad7:mixinextras:0.0.+".let {
+    "com.github.llamalad7:mixinextras:0.0.12".let {
         implementation(it)
         annotationProcessor(it)
         include(it)

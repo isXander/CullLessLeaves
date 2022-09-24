@@ -61,11 +61,11 @@ public class CullLessLeavesConfig {
 
     public Screen makeScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
-                .title(Text.translatable("text.autoconfig.cull-less-leaves.title"))
+                .title(Text.translatable("cull-less-leaves.title"))
                 .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("text.autoconfig.cull-less-leaves.title"))
+                        .name(Text.translatable("cull-less-leaves.title"))
                         .option(Option.createBuilder(boolean.class)
-                                .name(Text.translatable("text.autoconfig.cull-less-leaves.option.enabled"))
+                                .name(Text.translatable("cull-less-leaves.option.enabled"))
                                 .binding(
                                         true,
                                         () -> enabled,
@@ -74,8 +74,8 @@ public class CullLessLeavesConfig {
                                 .controller(TickBoxController::new)
                                 .build())
                         .option(Option.createBuilder(int.class)
-                                .name(Text.translatable("text.autoconfig.cull-less-leaves.option.depth"))
-                                .tooltip(Text.translatable("text.autoconfig.cull-less-leaves.option.depth.@Tooltip"))
+                                .name(Text.translatable("cull-less-leaves.option.depth"))
+                                .tooltip(Text.translatable("cull-less-leaves.option.depth.tooltip"))
                                 .binding(
                                         2,
                                         () -> depth,
