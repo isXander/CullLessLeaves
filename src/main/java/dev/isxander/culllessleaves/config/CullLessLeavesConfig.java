@@ -1,92 +1,50 @@
 package dev.isxander.culllessleaves.config;
 
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
 import dev.isxander.yacl.api.ConfigCategory;
 import dev.isxander.yacl.api.Option;
 import dev.isxander.yacl.api.OptionFlag;
 import dev.isxander.yacl.api.YetAnotherConfigLib;
+import dev.isxander.yacl.config.ConfigEntry;
+import dev.isxander.yacl.config.ConfigInstance;
+import dev.isxander.yacl.config.GsonConfigInstance;
 import dev.isxander.yacl.gui.controllers.TickBoxController;
 import dev.isxander.yacl.gui.controllers.slider.IntegerSliderController;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 public class CullLessLeavesConfig {
-    public static final CullLessLeavesConfig INSTANCE = new CullLessLeavesConfig();
+    public static final ConfigInstance<CullLessLeavesConfig> INSTANCE = new GsonConfigInstance<>(CullLessLeavesConfig.class, FabricLoader.getInstance().getConfigDir().resolve("cull-less-leaves.json"));
 
-    public final Path configFile = FabricLoader.getInstance().getConfigDir().resolve("cull-less-leaves.json");
-    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    @ConfigEntry public boolean enabled = true;
+    @ConfigEntry public int depth = 2;
 
-    public boolean enabled = true;
-    public int depth = 2;
-
-    public void save() {
-        try {
-            Files.deleteIfExists(configFile);
-
-            JsonObject json = new JsonObject();
-            json.addProperty("enabled", enabled);
-            json.addProperty("depth", depth);
-
-            Files.writeString(configFile, gson.toJson(json));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void load() {
-        try {
-            if (Files.notExists(configFile)) {
-                save();
-                return;
-            }
-
-            JsonObject json = gson.fromJson(Files.readString(configFile), JsonObject.class);
-
-            if (json.has("enabled"))
-                enabled = json.getAsJsonPrimitive("enabled").getAsBoolean();
-            if (json.has("depth"))
-                depth = json.getAsJsonPrimitive("depth").getAsInt();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public Screen makeScreen(Screen parent) {
-        return YetAnotherConfigLib.createBuilder()
+    public static Screen makeScreen(Screen parent) {
+        return INSTANCE.buildConfig((config, builder) -> builder
                 .title(Text.translatable("cull-less-leaves.title"))
                 .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("cull-less-leaves.title"))
-                        .option(Option.createBuilder(boolean.class)
-                                .name(Text.translatable("cull-less-leaves.option.enabled"))
-                                .binding(
-                                        true,
-                                        () -> enabled,
-                                        value -> enabled = value
-                                )
-                                .controller(TickBoxController::new)
-                                .build())
-                        .option(Option.createBuilder(int.class)
-                                .name(Text.translatable("cull-less-leaves.option.depth"))
-                                .tooltip(Text.translatable("cull-less-leaves.option.depth.tooltip"))
-                                .binding(
-                                        2,
-                                        () -> depth,
-                                        value -> depth = value
-                                )
-                                .controller(yacl -> new IntegerSliderController(yacl, 1, 4, 1))
-                                .flag(OptionFlag.RELOAD_CHUNKS)
-                                .build())
-                        .build())
-                .save(this::save)
-                .build()
+                         .name(Text.translatable("cull-less-leaves.title"))
+                         .option(Option.createBuilder(boolean.class)
+                                 .name(Text.translatable("cull-less-leaves.option.enabled"))
+                                 .binding(
+                                         config.getDefaults().enabled,
+                                         () -> config.getConfig().enabled,
+                                         value -> config.getConfig().enabled = value
+                                 )
+                                 .controller(TickBoxController::new)
+                                 .build())
+                         .option(Option.createBuilder(int.class)
+                                 .name(Text.translatable("cull-less-leaves.option.depth"))
+                                 .tooltip(Text.translatable("cull-less-leaves.option.depth.tooltip"))
+                                 .binding(
+                                         config.getDefaults().depth,
+                                         () -> config.getConfig().depth,
+                                         value -> config.getConfig().depth = value
+                                 )
+                                 .controller(yacl -> new IntegerSliderController(yacl, 1, 4, 1))
+                                 .flag(OptionFlag.RELOAD_CHUNKS)
+                                 .build())
+                         .build()))
                 .generateScreen(parent);
     }
 }

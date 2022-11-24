@@ -13,12 +13,13 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.0.6"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
     maven("https://maven.isxander.dev/releases")
+    maven("https://maven.isxander.dev/snapshots")
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
     maven("https://maven.flashyreese.me/snapshots")
@@ -34,20 +35,28 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander:yet-another-config-lib:1.5.0")
-    modImplementation("com.terraformersmc:modmenu:4.0.6")
+    modImplementation("dev.isxander:yet-another-config-lib:2.0.0+1.19.3-SNAPSHOT")
+    modImplementation("com.terraformersmc:modmenu:5.0.0-alpha.4")
 
-    "com.github.llamalad7:mixinextras:0.0.12".let {
+    "com.github.llamalad7:mixinextras:0.1.1".let {
         implementation(it)
         annotationProcessor(it)
         include(it)
     }
 
     // sodium compat
-    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.4+build.+")
+    modCompileOnly("me.jellysquid.mods:sodium-fabric:0.4.4+build.+")
 
     // more culling compat
-    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.10.0")
+    modCompileOnly("com.github.fxmorin.MoreCulling:moreculling:v0.10.0") {
+        exclude(module = "cloth-config")
+        exclude(group = "net.fabricmc.fabric-api")
+        exclude(module = "modmenu")
+    }
+    modRuntimeOnly("me.shedaniel.cloth:cloth-config-fabric:9.0.92") {
+        exclude(group = "net.fabricmc.fabric-api")
+    }
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.67.2+1.19.3")
     "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
         modImplementation(it)
         include(it)
@@ -105,12 +114,12 @@ if (modrinthId.isNotEmpty()) {
         versionNumber.set("${project.version}")
         versionType.set("release")
         uploadFile.set(tasks["remapJar"])
-        gameVersions.set(listOf("1.19", "1.19.1", "1.19.2"))
+        gameVersions.set(listOf("1.19", "1.19.1", "1.19.2", "1.19.3"))
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
         dependencies {
-            required.project("cloth-config")
+            required.project("yacl")
             optional.project("modmenu")
         }
     }
@@ -130,12 +139,13 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
             addGameVersion("1.19")
             addGameVersion("1.19.1")
             addGameVersion("1.19.2")
+            addGameVersion("1.19.3")
             addGameVersion("Fabric")
             addGameVersion("Quilt")
             addGameVersion("Java 17")
 
             relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
-                requiredDependency("cloth-config")
+                requiredDependency("yacl")
                 optionalDependency("modmenu")
             })
 
@@ -157,7 +167,7 @@ githubRelease {
     owner(split[0])
     repo(split[1])
     tagName("${project.version}")
-    targetCommitish("1.19")
+    targetCommitish("1.19.3")
     body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }
@@ -173,11 +183,11 @@ publishing {
     }
 
     repositories {
-        if (hasProperty("xander-repo.username") && hasProperty("xander-repo.password")) {
+        if (hasProperty("XANDER_MAVEN_USER") && hasProperty("XANDER_MAVEN_PASS")) {
             maven(url = "https://maven.isxander.dev/releases") {
                 credentials {
-                    username = property("xander-repo.username")?.toString()
-                    password = property("xander-repo.password")?.toString()
+                    username = property("XANDER_MAVEN_USER")?.toString()
+                    password = property("XANDER_MAVEN_PASS")?.toString()
                 }
             }
         }

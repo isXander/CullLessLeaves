@@ -9,6 +9,6 @@ import me.shedaniel.autoconfig.AutoConfig;
 public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> CullLessLeaves.getConfig().makeScreen(parent);
+        return CullLessLeavesConfig::makeScreen;
     }
 }

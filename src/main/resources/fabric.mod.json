@@ -17,7 +17,7 @@
   "icon": "cull-less-leaves.png",
   "entrypoints": {
     "preLaunch": [
-      "dev.isxander.culllessleaves.CullLessLeaves"
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
     ],
     "client": [
       "dev.isxander.culllessleaves.CullLessLeaves"
