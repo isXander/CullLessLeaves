@@ -20,28 +20,29 @@ public class CullLessLeavesConfig {
     @ConfigEntry public int depth = 2;
 
     public static Screen makeScreen(Screen parent) {
-        return INSTANCE.buildConfig((config, builder) -> builder
+        return YetAnotherConfigLib.create(INSTANCE, (defaults, config, builder) -> builder
                 .title(Text.translatable("cull-less-leaves.title"))
                 .category(ConfigCategory.createBuilder()
                          .name(Text.translatable("cull-less-leaves.title"))
                          .option(Option.createBuilder(boolean.class)
                                  .name(Text.translatable("cull-less-leaves.option.enabled"))
                                  .binding(
-                                         config.getDefaults().enabled,
-                                         () -> config.getConfig().enabled,
-                                         value -> config.getConfig().enabled = value
+                                         defaults.enabled,
+                                         () -> config.enabled,
+                                         value -> config.enabled = value
                                  )
                                  .controller(TickBoxController::new)
+                                 .flag(OptionFlag.RELOAD_CHUNKS)
                                  .build())
                          .option(Option.createBuilder(int.class)
                                  .name(Text.translatable("cull-less-leaves.option.depth"))
                                  .tooltip(Text.translatable("cull-less-leaves.option.depth.tooltip"))
                                  .binding(
-                                         config.getDefaults().depth,
-                                         () -> config.getConfig().depth,
-                                         value -> config.getConfig().depth = value
+                                         defaults.depth,
+                                         () -> config.depth,
+                                         value -> config.depth = value
                                  )
-                                 .controller(yacl -> new IntegerSliderController(yacl, 1, 4, 1))
+                                 .controller(opt -> new IntegerSliderController(opt, 1, 4, 1))
                                  .flag(OptionFlag.RELOAD_CHUNKS)
                                  .build())
                          .build()))

@@ -17,12 +17,43 @@ version = "1.1.0"
 
 repositories {
     mavenCentral()
-    maven("https://jitpack.io")
+    maven("https://jitpack.io") {
+        content {
+            includeGroup("com.github.llamalad7")
+            includeGroup("com.github.Fallen-Breath")
+        }
+    }
     maven("https://maven.isxander.dev/releases")
     maven("https://maven.isxander.dev/snapshots")
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
     maven("https://maven.flashyreese.me/snapshots")
+}
+
+//val sodium by sourceSets.registering {
+//    compileClasspath += sourceSets.main.get().compileClasspath
+//    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+//}
+
+loom {
+    runs {
+//        register("sodium") {
+//            client()
+//            ideConfigGenerated(true)
+//            name("Sodium Test")
+//            source(sodium.get())
+//        }
+
+        getByName("client") {
+            name("Vanilla Test")
+        }
+
+        getByName("server") {
+            ideConfigGenerated(false)
+        }
+    }
+
+//    createRemapConfigurations(sodium.get())
 }
 
 val minecraftVersion: String by project
@@ -45,18 +76,9 @@ dependencies {
     }
 
     // sodium compat
-    modCompileOnly("me.jellysquid.mods:sodium-fabric:0.4.4+build.+")
+    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.5+build.204")
 
-    // more culling compat
-    modCompileOnly("com.github.fxmorin.MoreCulling:moreculling:v0.10.0") {
-        exclude(module = "cloth-config")
-        exclude(group = "net.fabricmc.fabric-api")
-        exclude(module = "modmenu")
-    }
-    modRuntimeOnly("me.shedaniel.cloth:cloth-config-fabric:9.0.92") {
-        exclude(group = "net.fabricmc.fabric-api")
-    }
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.67.2+1.19.3")
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.68.1+1.19.3")
     "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
         modImplementation(it)
         include(it)

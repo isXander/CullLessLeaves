@@ -4,7 +4,6 @@ import dev.isxander.culllessleaves.CullLessLeaves;
 import dev.isxander.culllessleaves.config.CullLessLeavesConfig;
 import me.jellysquid.mods.sodium.client.SodiumClientMod;
 import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 
 public class SodiumCompat {

@@ -7,8 +7,7 @@
     "BlockMixin",
     "sodiumcompat.BlockOcclusionCacheMixin",
     "sodiumcompat.LeavesBlockMixin",
-    "sodiumcompat.SodiumGameOptionPagesMixin",
-    "morecullingcompat.LeavesBlockMixin"
+    "sodiumcompat.SodiumGameOptionPagesMixin"
   ],
   "plugin": "dev.isxander.culllessleaves.utils.MixinPlugin"
 }

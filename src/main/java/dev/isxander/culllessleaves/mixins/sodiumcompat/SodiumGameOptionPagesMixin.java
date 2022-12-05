@@ -33,7 +33,7 @@ public class SodiumGameOptionPagesMixin {
                 .add(OptionImpl.createBuilder(int.class, SodiumCompat.getOptionStorage())
                         .setName(Text.translatable("cull-less-leaves.sodium.option.depth"))
                         .setTooltip(Text.translatable("cull-less-leaves.option.depth.tooltip"))
-                        .setControl(o -> new SliderControl(o, 1, 4, 1, ControlValueFormatter.number()))
+                        .setControl(o -> new SliderControl(o, 1, 4, 1, ControlValueFormatter.biomeBlend()))
                         .setBinding((opts, value) -> opts.depth = value, opts -> opts.depth)
                         .setImpact(OptionImpact.MEDIUM)
                         .setFlags(OptionFlag.REQUIRES_RENDERER_RELOAD)
