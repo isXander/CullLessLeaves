@@ -2,7 +2,7 @@
   "cull-less-leaves.title": "Cull Less Leaves",
   "cull-less-leaves.option.enabled": "啟用",
   "cull-less-leaves.option.depth": "深度",
-  "cull-less-leaves.option.depth.tooltip": "在樹葉内部被剔除之前的樹葉層數。\n1 = 最快但最不好看。\n2 = 推荐.\n4 = 最慢但最好看。",
+  "cull-less-leaves.option.depth.tooltip": "在樹葉内部被剔除之前的樹葉層數。\n1 = 最快但最不好看。\n2 = 推薦。\n4 = 最慢但最好看。",
   "cull-less-leaves.sodium.option.enabled": "剔除樹葉",
   "cull-less-leaves.sodium.option.enabled.description": "啟用 Cull Less Leaves 模組.",
   "cull-less-leaves.sodium.option.depth": "剔除樹葉深度"
