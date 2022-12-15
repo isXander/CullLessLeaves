@@ -13,14 +13,13 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.1.0"
+version = "1.1.1"
 
 repositories {
     mavenCentral()
     maven("https://jitpack.io") {
         content {
             includeGroup("com.github.llamalad7")
-            includeGroup("com.github.Fallen-Breath")
         }
     }
     maven("https://maven.isxander.dev/releases")
@@ -66,8 +65,8 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander:yet-another-config-lib:2.0.0+1.19.3-SNAPSHOT")
-    modImplementation("com.terraformersmc:modmenu:5.0.0-alpha.4")
+    modImplementation("dev.isxander:yet-another-config-lib:2.1.1")
+    modImplementation("com.terraformersmc:modmenu:5.0.0")
 
     "com.github.llamalad7:mixinextras:0.1.1".let {
         implementation(it)
@@ -78,11 +77,7 @@ dependencies {
     // sodium compat
     modImplementation("me.jellysquid.mods:sodium-fabric:0.4.5+build.204")
 
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.68.1+1.19.3")
-    "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
-        modImplementation(it)
-        include(it)
-    }
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.69.1+1.19.3")
 }
 
 java {
@@ -136,7 +131,7 @@ if (modrinthId.isNotEmpty()) {
         versionNumber.set("${project.version}")
         versionType.set("release")
         uploadFile.set(tasks["remapJar"])
-        gameVersions.set(listOf("1.19", "1.19.1", "1.19.2", "1.19.3"))
+        gameVersions.set(listOf("1.19.3"))
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
@@ -158,9 +153,6 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
 
             id = curseforgeId
             releaseType = "release"
-            addGameVersion("1.19")
-            addGameVersion("1.19.1")
-            addGameVersion("1.19.2")
             addGameVersion("1.19.3")
             addGameVersion("Fabric")
             addGameVersion("Quilt")

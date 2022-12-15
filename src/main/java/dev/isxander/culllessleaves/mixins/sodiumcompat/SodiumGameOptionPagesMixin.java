@@ -1,8 +1,6 @@
 package dev.isxander.culllessleaves.mixins.sodiumcompat;
 
 import dev.isxander.culllessleaves.compat.SodiumCompat;
-import me.fallenbreath.conditionalmixin.api.annotation.Condition;
-import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.jellysquid.mods.sodium.client.gui.SodiumGameOptionPages;
 import me.jellysquid.mods.sodium.client.gui.options.*;
 import me.jellysquid.mods.sodium.client.gui.options.control.ControlValueFormatter;
@@ -10,12 +8,13 @@ import me.jellysquid.mods.sodium.client.gui.options.control.SliderControl;
 import me.jellysquid.mods.sodium.client.gui.options.control.TickBoxControl;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import java.util.List;
 
-@Restriction(require = @Condition("sodium"))
+@Pseudo
 @Mixin(value = SodiumGameOptionPages.class, remap = false)
 public class SodiumGameOptionPagesMixin {
     @ModifyVariable(method = "performance", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableList;copyOf(Ljava/util/Collection;)Lcom/google/common/collect/ImmutableList;"))
