@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.1.1"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
