@@ -1,0 +1,9 @@
+{
+    "cull-less-leaves.title": "Cull Less Leaves",
+    "cull-less-leaves.option.enabled": "Ativado",
+    "cull-less-leaves.option.depth": "Profundidade",
+    "cull-less-leaves.option.depth.tooltip": "Quantidade de camadas de folhas antes que o interior das folhas seja abatido.\n1 = Mais rápido, porém menos bonito.\n2 = Recomendado.\n4 = Mais lento, porém mais bonito.",
+    "cull-less-leaves.sodium.option.enabled": "Abates das Folhas",
+    "cull-less-leaves.sodium.option.enabled.description": "Habilita Cull Less Leaves mod.",
+    "cull-less-leaves.sodium.option.depth": "Profundidade no Abate das Folhas"
+}
