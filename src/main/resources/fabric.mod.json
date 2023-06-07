@@ -31,9 +31,9 @@
   ],
   "depends": {
     "fabricloader": ">=0.14.0",
-    "minecraft": "1.19.x",
+    "minecraft": ">=1.19.4",
     "java": ">=17",
-    "yet-another-config-lib": ">=2.1.1"
+    "yet_another_config_lib_v3": "*"
   },
   "suggests": {
     "sodium": "*"

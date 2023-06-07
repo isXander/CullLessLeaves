@@ -1,32 +1,32 @@
 plugins {
     java
 
-    id("fabric-loom") version "1.0.+"
-    id("io.github.juuxel.loom-quiltflower") version "1.7.+"
+    id("fabric-loom") version "1.2.+"
+    id("io.github.juuxel.loom-quiltflower") version "1.10.+"
 
     id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.+"
     id("com.github.breadmoirai.github-release") version "2.4.+"
     `maven-publish`
 
-    id("io.github.p03w.machete") version "1.+"
+    id("io.github.p03w.machete") version "2.+"
 }
 
 group = "dev.isxander"
-version = "1.1.0"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
     maven("https://jitpack.io") {
         content {
-            includeGroup("com.github.llamalad7")
+            includeGroup("com.github.llamalad7.mixinextras")
+            includeGroup("com.github.CaffeineMC")
         }
     }
     maven("https://maven.isxander.dev/releases")
     maven("https://maven.isxander.dev/snapshots")
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
-    maven("https://maven.flashyreese.me/snapshots")
 }
 
 //val sodium by sourceSets.registering {
@@ -65,19 +65,19 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander:yet-another-config-lib:2.1.1")
-    modImplementation("com.terraformersmc:modmenu:5.0.0")
+    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:3.0.0+1.20")
+    modImplementation("com.terraformersmc:modmenu:7.0.0")
 
-    "com.github.llamalad7:mixinextras:0.1.1".let {
+    "com.github.llamalad7.mixinextras:mixinextras-fabric:0.2.0-beta.8".let {
         implementation(it)
         annotationProcessor(it)
         include(it)
     }
 
     // sodium compat
-    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.5+build.204")
+    modImplementation("com.github.CaffeineMC:sodium-fabric:mc1.20-0.4.10")
 
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.69.1+1.19.3")
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.83.0+1.20")
 }
 
 java {
@@ -131,7 +131,7 @@ if (modrinthId.isNotEmpty()) {
         versionNumber.set("${project.version}")
         versionType.set("release")
         uploadFile.set(tasks["remapJar"])
-        gameVersions.set(listOf("1.19.3"))
+        gameVersions.set(listOf("1.19.4", "1.20"))
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
@@ -153,7 +153,8 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
 
             id = curseforgeId
             releaseType = "release"
-            addGameVersion("1.19.3")
+            addGameVersion("1.19.4")
+            addGameVersion("1.20")
             addGameVersion("Fabric")
             addGameVersion("Quilt")
             addGameVersion("Java 17")
