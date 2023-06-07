@@ -182,10 +182,13 @@ githubRelease {
     owner(split[0])
     repo(split[1])
     tagName("${project.version}")
-    targetCommitish("1.19.3")
+    targetCommitish("1.20")
     body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }
+
+tasks["githubRelease"].dependsOn("optimizeOutputsOfRemapJar")
+tasks["modrinth"].dependsOn("optimizeOutputsOfRemapJar")
 
 publishing {
     publications {
