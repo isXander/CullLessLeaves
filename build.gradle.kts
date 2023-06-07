@@ -187,9 +187,6 @@ githubRelease {
     releaseAssets(tasks["remapJar"].outputs.files)
 }
 
-tasks["githubRelease"].dependsOn("optimizeOutputsOfRemapJar")
-tasks["modrinth"].dependsOn("optimizeOutputsOfRemapJar")
-
 publishing {
     publications {
         create<MavenPublication>("mod") {
@@ -211,3 +208,7 @@ publishing {
         }
     }
 }
+
+tasks["githubRelease"].dependsOn("optimizeOutputsOfRemapJar")
+tasks["modrinth"].dependsOn("optimizeOutputsOfRemapJar")
+tasks["generateMetadataFileForModPublication"].dependsOn("optimizeOutputsOfRemapJar")
