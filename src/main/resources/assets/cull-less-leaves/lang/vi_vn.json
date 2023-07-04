@@ -1,0 +1,9 @@
+{
+  "cull-less-leaves.title": "Cull Less Leaves",
+  "cull-less-leaves.option.enabled": "Đã bật",
+  "cull-less-leaves.option.depth": "Chiều sâu",
+  "cull-less-leaves.option.depth.tooltip": "Số lớp lá trước khi loại bỏ mặt trong của lá.\n1 = Nhanh nhất nhưng kém đẹp nhất.\n2 = Đề nghị.\n4 = Chậm nhất nhưng đẹp nhất.",
+  "cull-less-leaves.sodium.option.enabled": "Loại bỏ lá",
+  "cull-less-leaves.sodium.option.enabled.description": "Bật mod Cull Less Leaves.",
+  "cull-less-leaves.sodium.option.depth": "Chiều sâu loại bỏ lá"
+}
