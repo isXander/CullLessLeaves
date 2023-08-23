@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.1.0"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
@@ -113,6 +113,8 @@ if (modrinthId.isNotEmpty()) {
             optional.project("modmenu")
         }
     }
+
+    tasks.getByName("modrinth").dependsOn("optimizeOutputsOfRemapJar")
 }
 
 val curseforgeId: String by project
@@ -154,10 +156,12 @@ githubRelease {
     owner(split[0])
     repo(split[1])
     tagName("${project.version}")
-    targetCommitish("1.19")
+    targetCommitish("1.20.x/dev")
     body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }
+
+tasks.getByName("githubRelease").dependsOn("optimizeOutputsOfRemapJar")
 
 publishing {
     publications {
