@@ -171,6 +171,8 @@ publishing {
 
             from(components["java"])
         }
+
+        tasks.getByName("generateMetadataFileForModPublication").dependsOn("optimizeOutputsOfRemapJar")
     }
 
     repositories {
