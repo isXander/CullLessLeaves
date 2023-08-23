@@ -1,27 +1,32 @@
 plugins {
     java
 
-    id("fabric-loom") version "1.0.+"
-    id("io.github.juuxel.loom-quiltflower") version "1.7.+"
+    id("fabric-loom") version "1.3.+"
+    id("io.github.juuxel.loom-vineflower") version "1.11.+"
 
-    id("com.modrinth.minotaur") version "2.+"
+    id("com.modrinth.minotaur") version "2.7.+"
     id("com.matthewprenger.cursegradle") version "1.+"
     id("com.github.breadmoirai.github-release") version "2.4.+"
     `maven-publish`
 
-    id("io.github.p03w.machete") version "1.+"
+    id("io.github.p03w.machete") version "2.+"
 }
 
 group = "dev.isxander"
-version = "1.0.6"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
+    maven("https://api.modrinth.com/maven") {
+        content {
+            includeGroup("maven.modrinth")
+        }
+    }
     maven("https://jitpack.io")
     maven("https://maven.isxander.dev/releases")
     maven("https://maven.shedaniel.me")
     maven("https://maven.terraformersmc.com")
-    maven("https://maven.flashyreese.me/snapshots")
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 val minecraftVersion: String by project
@@ -34,24 +39,18 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander:yet-another-config-lib:1.5.0")
-    modImplementation("com.terraformersmc:modmenu:4.0.6")
+    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:3.1.0+1.20")
+    modImplementation("com.terraformersmc:modmenu:7.1.0")
 
-    "com.github.llamalad7:mixinextras:0.0.12".let {
+    "com.github.llamalad7.mixinextras:mixinextras-fabric:0.2.0-beta.10".let {
         implementation(it)
         annotationProcessor(it)
         include(it)
     }
 
     // sodium compat
-    modImplementation("me.jellysquid.mods:sodium-fabric:0.4.4+build.+")
-
-    // more culling compat
-    modImplementation("com.github.fxmorin.MoreCulling:moreculling:v0.10.0")
-    "com.github.Fallen-Breath:conditional-mixin:v0.3.0".let {
-        modImplementation(it)
-        include(it)
-    }
+    modImplementation("maven.modrinth:sodium:mc1.20.1-0.5.2")
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.87.0+1.20.1")
 }
 
 java {
@@ -105,12 +104,12 @@ if (modrinthId.isNotEmpty()) {
         versionNumber.set("${project.version}")
         versionType.set("release")
         uploadFile.set(tasks["remapJar"])
-        gameVersions.set(listOf("1.19", "1.19.1", "1.19.2"))
+        gameVersions.set(listOf("1.20.1"))
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
         dependencies {
-            required.project("cloth-config")
+            required.project("yacl")
             optional.project("modmenu")
         }
     }
@@ -127,15 +126,13 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
 
             id = curseforgeId
             releaseType = "release"
-            addGameVersion("1.19")
-            addGameVersion("1.19.1")
-            addGameVersion("1.19.2")
+            addGameVersion("1.20.1")
             addGameVersion("Fabric")
             addGameVersion("Quilt")
             addGameVersion("Java 17")
 
             relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
-                requiredDependency("cloth-config")
+                requiredDependency("yacl")
                 optionalDependency("modmenu")
             })
 

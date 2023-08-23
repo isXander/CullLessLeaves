@@ -1,14 +1,9 @@
 package dev.isxander.culllessleaves.mixins.sodiumcompat;
 
-import me.fallenbreath.conditionalmixin.api.annotation.Condition;
-import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.util.math.Direction;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Restriction(require = @Condition("sodium"), conflict = @Condition("moreculling"))
 @Mixin(value = LeavesBlock.class, priority = 1100)
 public class LeavesBlockMixin extends Block {
     public LeavesBlockMixin(Settings settings) {
@@ -22,9 +17,9 @@ public class LeavesBlockMixin extends Block {
      * this mixin simply reverts to vanilla behaviour
      * @see me.jellysquid.mods.sodium.mixin.features.render_layer.leaves.MixinLeavesBlock
      */
-    @Override
-    @SuppressWarnings("deprecation")
-    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
-        return super.isSideInvisible(state, stateFrom, direction);
-    }
+//    @Override
+//    @SuppressWarnings("deprecation")
+//    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
+//        return super.isSideInvisible(state, stateFrom, direction);
+//    }
 }

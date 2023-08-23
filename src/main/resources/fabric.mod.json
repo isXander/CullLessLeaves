@@ -16,9 +16,6 @@
   "environment": "client",
   "icon": "cull-less-leaves.png",
   "entrypoints": {
-    "preLaunch": [
-      "dev.isxander.culllessleaves.CullLessLeaves"
-    ],
     "client": [
       "dev.isxander.culllessleaves.CullLessLeaves"
     ],
@@ -31,9 +28,9 @@
   ],
   "depends": {
     "fabricloader": ">=0.14.0",
-    "minecraft": "1.19.x",
+    "minecraft": "1.20.x",
     "java": ">=17",
-    "yet-another-config-lib": ">=1.4.0"
+    "yet_another_config_lib_v3": "*"
   },
   "suggests": {
     "sodium": "*"
