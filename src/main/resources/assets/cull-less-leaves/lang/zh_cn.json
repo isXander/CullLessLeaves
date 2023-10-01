@@ -1,9 +1,15 @@
 {
-  "cull-less-leaves.title": "剔除较少的树叶(Cull Less Leaves)",
-  "cull-less-leaves.option.enabled": "启用",
-  "cull-less-leaves.option.depth": "深度",
-  "cull-less-leaves.option.depth.tooltip": "在树叶内部被剔除之前的树叶层数.\n1 = 最快但最不好看.\n2 = 推荐.\n4 = 最慢但最好看.",
-  "cull-less-leaves.sodium.option.enabled": "剔除树叶",
-  "cull-less-leaves.sodium.option.enabled.description": "启用Cull Less Leaves模组.",
-  "cull-less-leaves.sodium.option.depth": "剔除树叶深度"
+    "cull-less-leaves.title": "Cull Less Leaves - 更好的树叶渲染优化",
+    "cull-less-leaves.option.enabled": "启用",
+    "cull-less-leaves.option.depth": "深度",
+    "cull-less-leaves.option.depth.tooltip": "树叶内部被剔除之前的树叶层数。\n1 = 最快但最不好看。\n2 = 推荐。\n4 = 最慢但最好看。",
+    "cull-less-leaves.sodium.option.enabled": "剔除树叶",
+    "cull-less-leaves.sodium.option.enabled.description": "启用 更好的树叶渲染优化 模组。",
+    "cull-less-leaves.sodium.option.depth": "剔除树叶深度",
+    "cull-less-leaves.option.random_rejection": "随机剔除",
+    "cull-less-leaves.option.random_rejection.tooltip": "随机剔除指定深度范围内一定百分比的内层树叶。",
+    "cull-less-leaves.option.fast_mangrove_roots_culling": "快速红树根剔除",
+    "cull-less-leaves.option.fast_mangrove_roots_culling.tooltip": "对红树根进行深度为-1的剔除，在红树根单层生成时，再多都是徒劳的。这没什么大的用处。",
+    "modmenu.nameTranslation.cull-less-leaves": "Cull Less Leaves - 更好的树叶渲染优化",
+    "modmenu.descriptionTranslation.cull-less-leaves": "在看着热时剔除树叶！"
 }
