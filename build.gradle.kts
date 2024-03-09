@@ -1,8 +1,8 @@
 plugins {
     java
 
-    id("fabric-loom") version "1.3.+"
-    id("io.github.juuxel.loom-vineflower") version "1.11.+"
+    id("fabric-loom") version "1.5.+"
+    //id("io.github.juuxel.loom-vineflower") version "1.11.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
     id("com.matthewprenger.cursegradle") version "1.+"
