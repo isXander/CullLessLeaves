@@ -1,9 +1,9 @@
 {
   "cull-less-leaves.title": "Cull Less Leaves",
   "cull-less-leaves.option.enabled": "Attivo",
-  "cull-less-leaves.option.depth": "Spessore",
+  "cull-less-leaves.option.depth": "Profondità",
   "cull-less-leaves.option.depth.tooltip": "Quantità di strati di foglie prima che l'interno delle foglie venga eliminato.\n1 = Più veloce ma meno bello.\n2 = Consigliato.\n4 = Più lento ma più bello.",
   "cull-less-leaves.sodium.option.enabled": "Culling delle foglie",
   "cull-less-leaves.sodium.option.enabled.description": "Attiva la mod Cull Less Leaves.",
-  "cull-less-leaves.sodium.option.depth": "Spessore del culling delle foglie"
+  "cull-less-leaves.sodium.option.depth": "Profondità del culling delle foglie"
 }
