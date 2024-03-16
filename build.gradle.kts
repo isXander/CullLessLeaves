@@ -1,8 +1,8 @@
 plugins {
     java
 
-    id("fabric-loom") version "1.3.+"
-    id("io.github.juuxel.loom-vineflower") version "1.11.+"
+    id("fabric-loom") version "1.5.+"
+    //id("io.github.juuxel.loom-vineflower") version "1.11.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
     id("com.matthewprenger.cursegradle") version "1.+"
@@ -39,8 +39,8 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:3.1.0+1.20")
-    modImplementation("com.terraformersmc:modmenu:7.1.0")
+    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:3.3.2+1.20.4")
+    modImplementation("com.terraformersmc:modmenu:9.0.0")
 
     "com.github.llamalad7.mixinextras:mixinextras-fabric:0.2.0-beta.10".let {
         implementation(it)
@@ -49,8 +49,8 @@ dependencies {
     }
 
     // sodium compat
-    modImplementation("maven.modrinth:sodium:mc1.20.1-0.5.2")
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.87.0+1.20.1")
+    modImplementation("maven.modrinth:sodium:mc1.20.4-0.5.8")
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.96.4+1.20.4")
 }
 
 java {
@@ -104,7 +104,7 @@ if (modrinthId.isNotEmpty()) {
         versionNumber.set("${project.version}")
         versionType.set("release")
         uploadFile.set(tasks["remapJar"])
-        gameVersions.set(listOf("1.20.1"))
+        gameVersions.set(listOf("1.20.4"))
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
@@ -128,7 +128,7 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
 
             id = curseforgeId
             releaseType = "release"
-            addGameVersion("1.20.1")
+            addGameVersion("1.20.4")
             addGameVersion("Fabric")
             addGameVersion("Quilt")
             addGameVersion("Java 17")
