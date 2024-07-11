@@ -1,7 +1,7 @@
 plugins {
     java
 
-    id("fabric-loom") version "1.5.+"
+    id("fabric-loom") version "1.6.+"
     //id("io.github.juuxel.loom-vineflower") version "1.11.+"
 
     id("com.modrinth.minotaur") version "2.7.+"
@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "dev.isxander"
-version = "1.3.0"
+version = "1.4.0"
 
 repositories {
     mavenCentral()
@@ -39,18 +39,18 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:3.3.2+1.20.4")
-    modImplementation("com.terraformersmc:modmenu:9.0.0")
+    modImplementation("dev.isxander:yet-another-config-lib:3.5.0+1.21-fabric")
+    modImplementation("com.terraformersmc:modmenu:11.0.1")
 
-    "com.github.llamalad7.mixinextras:mixinextras-fabric:0.2.0-beta.10".let {
+    "io.github.llamalad7:mixinextras-fabric:0.4.0".let {
         implementation(it)
         annotationProcessor(it)
         include(it)
     }
 
     // sodium compat
-    modImplementation("maven.modrinth:sodium:mc1.20.4-0.5.8")
-    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.96.4+1.20.4")
+    modImplementation("maven.modrinth:sodium:mc1.21-0.5.11")
+    modRuntimeOnly("net.fabricmc.fabric-api:fabric-api:0.100.6+1.21")
 }
 
 java {
@@ -104,7 +104,7 @@ if (modrinthId.isNotEmpty()) {
         versionNumber.set("${project.version}")
         versionType.set("release")
         uploadFile.set(tasks["remapJar"])
-        gameVersions.set(listOf("1.20.4"))
+        gameVersions.set(listOf("1.20.6"))
         loaders.set(listOf("fabric", "quilt"))
         changelog.set(changelogText)
         syncBodyFrom.set(file("README.md").readText())
@@ -128,10 +128,10 @@ if (hasProperty("curseforge.token") && curseforgeId.isNotEmpty()) {
 
             id = curseforgeId
             releaseType = "release"
-            addGameVersion("1.20.4")
+            addGameVersion("1.21")
             addGameVersion("Fabric")
             addGameVersion("Quilt")
-            addGameVersion("Java 17")
+            addGameVersion("Java 21")
 
             relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
                 requiredDependency("yacl")
@@ -156,7 +156,7 @@ githubRelease {
     owner(split[0])
     repo(split[1])
     tagName("${project.version}")
-    targetCommitish("1.20.x/dev")
+    targetCommitish("1.21")
     body(changelogText)
     releaseAssets(tasks["remapJar"].outputs.files)
 }
