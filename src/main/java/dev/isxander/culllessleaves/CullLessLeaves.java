@@ -21,7 +21,7 @@ public class CullLessLeaves implements ClientModInitializer {
     }
 
     public static CullLessLeavesConfig getConfig() {
-        return CullLessLeavesConfig.INSTANCE.getConfig();
+        return CullLessLeavesConfig.INSTANCE.instance();
     }
 
     public static boolean shouldCullSide(int depth, BlockView view, BlockPos pos, Direction facing, Function<Block, Boolean> blockCheck) {
