@@ -4,7 +4,6 @@ import dev.isxander.culllessleaves.CullLessLeaves;
 import dev.isxander.culllessleaves.config.CullLessLeavesConfig;
 import me.jellysquid.mods.sodium.client.SodiumClientMod;
 import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 
 public class SodiumCompat {
@@ -16,12 +15,13 @@ public class SodiumCompat {
 
         @Override
         public void save() {
-            CullLessLeaves.getConfig().save();
+            CullLessLeavesConfig.INSTANCE.save();
         }
     };
 
     public static boolean isFancyLeaves() {
-        return SodiumClientMod.options().quality.leavesQuality.isFancy(MinecraftClient.getInstance().options.getGraphicsMode().getValue());
+        return SodiumClientMod.options().quality.leavesQuality
+                .isFancy(MinecraftClient.getInstance().options.getGraphicsMode().getValue());
     }
 
     public static OptionStorage<CullLessLeavesConfig> getOptionStorage() {
