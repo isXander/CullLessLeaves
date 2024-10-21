@@ -1,0 +1,9 @@
+{
+  "cull-less-leaves.title": "Cull Less Leaves",
+  "cull-less-leaves.option.enabled": "활성화됨",
+  "cull-less-leaves.option.depth": "깊이",
+  "cull-less-leaves.option.depth.tooltip": "잎의 안쪽이 컬링 되기 전의 잎들의 양.\n1 = 가장 빠르지만 보기에 좋지 않음.\n2 = 추천 값.\n4 = 가장 느리지만 가장 보기 좋음.",
+  "cull-less-leaves.sodium.option.enabled": "잎 컬링",
+  "cull-less-leaves.sodium.option.enabled.description": "Cull Less Leaves 모드를 활성화합니다.",
+  "cull-less-leaves.sodium.option.depth": "잎 컬링 깊이"
+}

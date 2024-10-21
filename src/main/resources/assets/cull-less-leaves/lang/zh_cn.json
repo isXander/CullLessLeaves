@@ -1,0 +1,9 @@
+{
+  "cull-less-leaves.title": "剔除较少的树叶(Cull Less Leaves)",
+  "cull-less-leaves.option.enabled": "启用",
+  "cull-less-leaves.option.depth": "深度",
+  "cull-less-leaves.option.depth.tooltip": "在树叶内部被剔除之前的树叶层数.\n1 = 最快但最不好看.\n2 = 推荐.\n4 = 最慢但最好看.",
+  "cull-less-leaves.sodium.option.enabled": "剔除树叶",
+  "cull-less-leaves.sodium.option.enabled.description": "启用Cull Less Leaves模组.",
+  "cull-less-leaves.sodium.option.depth": "剔除树叶深度"
+}

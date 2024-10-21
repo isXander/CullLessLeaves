@@ -1,0 +1,19 @@
+{
+  "package": "dev.isxander.culllessleaves.mixins",
+  "required": true,
+  "minVersion": "0.8",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+  ],
+  "mixins": [
+    "BlockMixin",
+    "blocks.LeavesBlockMixin",
+    "blocks.MangroveRootsBlockMixin",
+    "blocks.PowderSnowBlockMixin",
+    "sodiumcompat.BlockOcclusionCacheMixin",
+    "sodiumcompat.SodiumGameOptionPagesMixin"
+  ]
+}

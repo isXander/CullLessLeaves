@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "${description}",
+  "authors": [
+    "isXander"
+  ],
+  "contact": {
+    "homepage": "https://isxander.dev",
+    "issues": "https://github.com/${github}/issues",
+    "sources": "https://github.com/${github}"
+  },
+  "license": "LGPL-3.0-or-later",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.isxander.culllessleaves.CullLessLeaves"
+    ],
+    "modmenu": [
+      "dev.isxander.culllessleaves.compat.modmenu.ModMenuCompat"
+    ]
+  },
+  "mixins": [
+    "cull-less-leaves.mixins.json"
+  ],
+  "icon": "cull-less-leaves.png",
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "${mc}",
+    "java": ">=17",
+    "yet_another_config_lib_v3": ">=3.4.0",
+    "fabric-api": "${fapi}"
+  },
+  "suggests": {
+    "immediatelyfast": "*"
+  },
+  "breaks": {
+    "midnightcontrols": "*",
+    "controllable": "*",
+    "zoomify": "<=2.13.4",
+    "do_a_barrel_roll": "<=3.5.8"
+  }
+}

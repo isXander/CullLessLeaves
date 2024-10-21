@@ -1,0 +1,9 @@
+{
+  "cull-less-leaves.title": "Cull Less Leaves",
+  "cull-less-leaves.option.enabled": "Activé",
+  "cull-less-leaves.option.depth": "Profondeur",
+  "cull-less-leaves.option.depth.tooltip": "Nombre de couches de feuilles avant que l'intérieur des feuilles ne soit masqué.\n1 = Le plus rapide, mais le moins beau.\n2 = Recommandé.\n4 = Le plus lent, mais le plus beau.",
+  "cull-less-leaves.sodium.option.enabled": "Masquage de feuilles",
+  "cull-less-leaves.sodium.option.enabled.description": "Active le mod Cull Less Leaves.",
+  "cull-less-leaves.sodium.option.depth": "Profondeur de Masquage des feuilles"
+}
