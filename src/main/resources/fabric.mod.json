@@ -31,15 +31,7 @@
     "minecraft": "${mc}",
     "java": ">=17",
     "yet_another_config_lib_v3": ">=3.4.0",
-    "fabric-api": "${fapi}"
-  },
-  "suggests": {
-    "immediatelyfast": "*"
-  },
-  "breaks": {
-    "midnightcontrols": "*",
-    "controllable": "*",
-    "zoomify": "<=2.13.4",
-    "do_a_barrel_roll": "<=3.5.8"
+    "fabric-api": "${fapi}",
+    "sodium": "<0.6"
   }
 }
