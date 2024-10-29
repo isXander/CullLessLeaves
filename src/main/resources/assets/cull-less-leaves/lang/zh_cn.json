@@ -2,8 +2,12 @@
   "cull-less-leaves.title": "剔除较少的树叶(Cull Less Leaves)",
   "cull-less-leaves.option.enabled": "启用",
   "cull-less-leaves.option.depth": "深度",
-  "cull-less-leaves.option.depth.tooltip": "在树叶内部被剔除之前的树叶层数.\n1 = 最快但最不好看.\n2 = 推荐.\n4 = 最慢但最好看.",
+  "cull-less-leaves.option.depth.tooltip": "在树叶内部被剔除之前的树叶层数\n1 = 最快但最不好看\n2 = 推荐\n4 = 最慢但最好看",
   "cull-less-leaves.sodium.option.enabled": "剔除树叶",
-  "cull-less-leaves.sodium.option.enabled.description": "启用Cull Less Leaves模组.",
-  "cull-less-leaves.sodium.option.depth": "剔除树叶深度"
+  "cull-less-leaves.sodium.option.enabled.description": "启用Cull Less Leaves模组",
+  "cull-less-leaves.sodium.option.depth": "剔除树叶深度",
+  "cull-less-leaves.option.random_rejection": "随机剔除",
+  "cull-less-leaves.option.random_rejection.tooltip": "随机剔除一定百分比的可接受深度范围的内层叶子",
+  "cull-less-leaves.option.fast_mangrove_roots_culling": "快速红树根剔除",
+  "cull-less-leaves.option.fast_mangrove_roots_culling.tooltip": "是否对红树根部进行深度 1 剔除，因为根部是在单层中生成的，所以再进行更多深度剔除是没有用的"
 }
