@@ -1,0 +1,9 @@
+{
+  "cull-less-leaves.title": "Cull Less Leaves",
+  "cull-less-leaves.option.enabled": "Didayakan",
+  "cull-less-leaves.option.depth": "Kedalaman",
+  "cull-less-leaves.option.depth.tooltip": "Jumlah lapisan daun sebelum bahagian dalam daun disorok.\n1 = Paling pantas tetapi paling kurang tampan.\n2 = Disyorkan.\n4 = Paling lambat tetapi paling tampan.",
+  "cull-less-leaves.sodium.option.enabled": "Sorok Daun",
+  "cull-less-leaves.sodium.option.enabled.description": "Mendayakan mod Cull Less Leaves.",
+  "cull-less-leaves.sodium.option.depth": "Kedalaman Penyorokan Daun"
+}

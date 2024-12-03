@@ -1,0 +1,9 @@
+{
+  "cull-less-leaves.title": "Cull Less Leaves",
+  "cull-less-leaves.option.enabled": "ددايکن",
+  "cull-less-leaves.option.depth": "کدالمن",
+  "cull-less-leaves.option.depth.tooltip": "جومله لاڤيسن داٴون سبلوم بهاݢين دالم داٴون دسوروق.\n1 = ڤاليڠ ڤانتس تتاڤي ڤاليڠ کورڠ تمڤن.\n2 = دشورکن.\n4 = ڤاليڠ لمبت تتاڤي ڤاليڠ تمڤن.",
+  "cull-less-leaves.sodium.option.enabled": "سوروق داٴون",
+  "cull-less-leaves.sodium.option.enabled.description": "منداياکن مود Cull Less Leaves.",
+  "cull-less-leaves.sodium.option.depth": "کدالمن ڤڽوروقن داٴون"
+}
